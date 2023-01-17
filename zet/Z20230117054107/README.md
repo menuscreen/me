@@ -22,7 +22,7 @@ This is the body of the zettel. Zettel is German for note.
 echo "hello world."
 ```
 
-https://github.com/menuscreen/me/zet/search?q=zettel
+https://github.com/menuscreen/me/search?q=zettel
 
 https://www.google.com/search?q=github+markdown
 
