@@ -6,7 +6,7 @@ This is the body of the zettel. Zettel is German for note.
 - Limit to about 25-30 lines
 - References including URLs after body
 - Hashtag on last line after 4-space indentation
-- Use Isosec identifier: YEARMONTHDAYHOURMINSEC in GMT
+- Use Isosec identifier: ZYEARMONTHDAYHOURMINSEC in GMT
 - Single level lists, no nested lists
 - Avoid subheadings, dont break topic up, keep it concise
 - Link to searches, not content
