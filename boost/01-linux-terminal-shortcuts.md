@@ -5,7 +5,12 @@ specific tasks on a Linux operating system through the terminal. There are
 many shortcuts available depending on the shell and terminal emulator being 
 used.
 
-## Common terminal shortcuts
+## Index
+
+* [Common terminal shortcuts](#common-terminal-shortcuts)
+* [Command prompt](#command-prompt)
+
+## Common terminal shortcuts 
 
 * `Tab`: Auto-complete a command or file name.
 
@@ -32,8 +37,29 @@ used.
   * Use `fg` to bring the last suspended command to the foreground. Or use 
   `fg <jobid>` to choose a specific job.
   * Use `jobs` to find a specific job id.  
-    Note:
+    **Note**:
     > Jobs are are assigned to the shell instance and when you close or exit
     the shell, the jobs are terminated as well. If you want to keep jobs running even after you log out, explore `nohup`, `disown`, `tmux`
 
 * `Ctrl + D`: Exit the terminal.
+
+[*Jump to Index*](#index)
+## Command prompt
+
+* `~` home directory of current user
+
+* `./` current directory
+
+* `../` previous directory (up a level) or directory traversal
+
+* `../../` back (up) two directories
+
+* `/` the root directory
+
+Examples: [cd](00-linux-commands.md/#cd) `cd ~` or `cd ..` or `cd /`
+
+Note:
+> `$` on the command prompt is the standard indicator of a non-root user  
+> `#` on the command prompt normally indicates root user
+
+[*Jump to Index*](#index)
