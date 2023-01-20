@@ -9,8 +9,8 @@ The 'me' repository is a collection of personal notes, writings, and professiona
 
 ## To do
 
-- [] cv
-- [] blog
+- [ ] cv
+- [ ] blog
 
 
 ### License:
