@@ -12,6 +12,7 @@ The 'me' repository is a collection of personal notes, writings, and professiona
 
 - [X] cv
     - [ ] reiterate
+- [ ] projects
 - [ ] blog
 
 
