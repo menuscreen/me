@@ -61,7 +61,7 @@ the relative parent directory
 
 * `/` the root directory
 
-Examples: [cd](00-linux-commands.md/#cd) `cd ~` or `cd ..` or `cd /`
+Examples: [*Jump to linux-commands/#cd*](00-linux-commands.md/#cd)
 
 Note:
 > `$` on the command prompt is the standard indicator of a non-root user  
