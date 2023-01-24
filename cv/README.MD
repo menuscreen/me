@@ -127,4 +127,4 @@ Islander Resort | October 2012 - October 2013
 
 ## Projects
 
-(See my portfolio for labs and knowledge exchange)[me]
+[See my portfolio for projects, labs, and knowledge exchange](me/)
