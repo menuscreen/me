@@ -11,6 +11,8 @@ command, as well as examples of how to use the command in different scenarios.
 * [update and upgrade](#update-and-upgrade)
 * [ls](#ls)
 * [hostname](#hostname)
+* [pwd](#pwd)
+* [cd](#cd)
 
 [related resources](#related-resources)
 
@@ -54,11 +56,24 @@ Ubuntu have `apt`. Use `apt` from the command line for interactive use, and
 use `apt-get` or `apt-cache` in scripts to help keep backward compatibility. 
 
 * `sudo apt update` - check's for available updates to installed packages and 
-dependancies - adds to what you already have
+dependancies - adds to what you already have.
 * `sudo apt upgrade` - downloads and installs the updates for outdated 
 packages adds new features/improvements and may require reconfiguring (might 
 break stuff, but upgrades are generally encouraged - snapshot VMs to revert 
-changes) 
+changes).
+* `apt search ^neo` - search for packages with that start with "neo" in 
+the name.  
+  Note:
+  > The packages in `apt` are vetted and approved by the debian and ubuntu 
+  teams are safe and stable security.
+* `sudo apt install neofetch` - installs neofetch package and dependencies
+* `sudo apt remove neofetch` - uninstalls neofetch package
+* `sudo apt autoremove neofetch` - automatically uninstalls unused package 
+dependencies
+* `sudo apt purge neofetch` - get rid of any remaining configuration files left
+over by packages that have already been removed (does not affect home 
+directory)
+
 
 Analogy: (update) new socks versus new outfit (upgrade)
 
@@ -87,14 +102,21 @@ file system
 
 ## cd
 
-* `cd` - change directory
+* `cd` - change current directory  
+   
+  > **Note**:  
+  > Can't use in a script
+
 ```bash
 # jump to current user's home folder
 cd ~ 
+cd
 # move 'up' a directory
 cd ..
 # change to root directory
 cd /
+# alternate back and forth
+cd -
 ```
 
 [*Jump to Index*](#index)
