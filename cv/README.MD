@@ -127,4 +127,4 @@ Islander Resort | October 2012 - October 2013
 
 ## Projects
 
-[See my portfolio for projects, labs, and knowledge exchange](../)
+[See my portfolio for projects, labs, and knowledge exchange](https://github.com/menuscreen/me/)
