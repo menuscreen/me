@@ -1,4 +1,4 @@
-# Linux Terminal Shortcuts
+# Linux Terminal
 
 Contains a list of various shortcuts and commands that can be used to perform
 specific tasks on a Linux operating system through the terminal. There are 
@@ -9,6 +9,7 @@ used.
 
 * [Common terminal shortcuts](#common-terminal-shortcuts)
 * [Command prompt](#command-prompt)
+* [Packages](#packages)
 
 ## Common terminal shortcuts 
 
@@ -43,16 +44,20 @@ used.
 
 * `Ctrl + D`: Exit the terminal.
 
+* `up arrow` or `down arrow`: Acess command line history of previously 
+executed commands
+
 [*Jump to Index*](#index)
 ## Command prompt
 
 * `~` home directory of current user
 
-* `./` current directory
+* `.` current working directory
 
-* `../` previous directory (up a level) or directory traversal
+* `..` previous directory (up a level) or directory traversal to
+the relative parent directory
 
-* `../../` back (up) two directories
+* `../..` parent of the parent directory
 
 * `/` the root directory
 
@@ -61,5 +66,11 @@ Examples: [cd](00-linux-commands.md/#cd) `cd ~` or `cd ..` or `cd /`
 Note:
 > `$` on the command prompt is the standard indicator of a non-root user  
 > `#` on the command prompt normally indicates root user
+
+[*Jump to Index*](#index)
+
+## Packages
+
+* neofetch - shows linux system info with disto logo
 
 [*Jump to Index*](#index)

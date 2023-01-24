@@ -3,9 +3,9 @@ The 'me' repository is a collection of personal notes, writings, and professiona
 
 ## Index
 
-* [zettelkasten](zet/README.md)
-* [boost](boost/README.md)
-* [lab](lab/README.md)
+* [zettelkasten](zet/)
+* [boost](boost/)
+* [lab](lab/)
 
 ## To do
 
