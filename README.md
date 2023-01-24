@@ -3,13 +3,15 @@ The 'me' repository is a collection of personal notes, writings, and professiona
 
 ## Index
 
+* [resume](cv/)
 * [zettelkasten](zet/)
 * [boost](boost/)
 * [lab](lab/)
 
 ## To do
 
-- [ ] cv
+- [X] cv
+    - [ ] reiterate
 - [ ] blog
 
 
