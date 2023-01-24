@@ -19,7 +19,7 @@ A highly motivated technologist with a strong interest in security engineering a
 - Experience with back-end technologies such as Node.js, Express, and MongoDB
 - Knowledgeable with modern web development tools such as Git, Webpack, and npm
 - Familiar with Agile development methodologies and Scrum
-- Knowledge of cloud infrastructure and services such as Linode
+- Knowledge of cloud infrastructure and services such as Linode and GCP
 - Big picture understanding of DevSecOps principles and best practices
 - Knowledge of security tools such as Nessus, Qualys, Burp Suite and Metasploit
 - Familiar with containerization and orchestration technologies such as Docker and Kubernetes
@@ -125,4 +125,6 @@ Islander Resort | October 2012 - October 2013
 - Continuously strived to improve the customer experience and satisfaction through efficient, timely and professional service
 - Adapted to the fast-paced and dynamic nature of the RV resort industry, and able to work independently or as part of a team
 
-<!-- ## Projects -->
+## Projects
+
+(See my portfolio for labs and knowledge exchange)[me]
