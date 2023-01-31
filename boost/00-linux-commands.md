@@ -17,12 +17,17 @@ command, as well as examples of how to use the command in different scenarios.
   * [clear](#clear)
   * [which](#which)
   * [type](#type)
+  * [exit](#exit)
+* [File Management](#file-management)
+* [Pagers](#pagers)
+  * [more](#more)
+  * [less](#less)
+* [User related commands](#user-related-commands)
   * [users](#users)
   * [who](#who)
   * [w](#w)
   * [whoami](#whoami)
   * [last](#last)
-* [File Management](#file-management)
 * [Networking](#networking)
   * [ip](#ip)
 
@@ -85,7 +90,6 @@ dependencies
 * `sudo apt purge neofetch` - get rid of any remaining configuration files left
 over by packages that have already been removed (does not affect home 
 directory)
-
 
 Analogy: (update) new socks versus new outfit (upgrade)
 
@@ -159,7 +163,46 @@ which <ssh>
 type <ssh>
 ```
 
+## exit
+
+```bash
+# exit the current program or login or shell
+exit
+```
+
 [*Jump to Index*](#index)
+
+## File Management
+
+
+
+[*Jump to Index*](#index)
+
+## Pagers
+
+## more
+
+```bash
+# a filter for paging through text one screenful at a time
+<cmd or program> | more
+# example
+apt search ssh | more
+```
+
+[*Jump to Index*](#index)
+## less
+
+> less is more (features)
+```bash
+# easier to manage stuff scrolling off screen
+<cmd or program> | less 
+# example
+apt search ssh | less
+```
+
+[*Jump to Index*](#index)
+
+## User related commands
 ## users
 
 ```bash 
@@ -190,7 +233,7 @@ w
 ## whoami
 
 ```bash 
-# display the effective userid
+# display the effective user name/id
 whoami
 ```
 
@@ -206,9 +249,26 @@ last
 
 [*Jump to Index*](#index)
 
-## File Management
+## id
 
+```bash 
+# display user and group name information for current user
+id
+# display for specific user
+id <username>
+```
 
+[*Jump to Index*](#index)
+
+## Process related
+
+## service 
+
+```bash
+# runs all init scripts in alabetical order 
+# [+] running [-] stopped [?] sevice w/o status command
+service --status-all
+```
 
 [*Jump to Index*](#index)
 

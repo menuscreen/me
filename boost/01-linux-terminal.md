@@ -42,7 +42,7 @@ used.
     > Jobs are are assigned to the shell instance and when you close or exit
     the shell, the jobs are terminated as well. If you want to keep jobs running even after you log out, explore `nohup`, `disown`, `tmux`
 
-* `Ctrl + D`: Exit the terminal.
+* `Ctrl + D`: Send end of data/file
 
 * `up arrow` or `down arrow`: Acess command line history of previously 
 executed commands
@@ -68,6 +68,12 @@ Note:
 > `#` on the command prompt normally indicates root user
 
 [*Jump to Index*](#index)
+
+## TTY
+
+Teletype
+
+* There's 7 console TTYs
 
 ## Packages
 
