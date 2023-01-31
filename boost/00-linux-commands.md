@@ -115,7 +115,7 @@ cd
 cd ..
 # change to root directory
 cd /
-# alternate back and forth
+# alternate back and forth to previous directory
 cd -
 ```
 
