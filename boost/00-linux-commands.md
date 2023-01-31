@@ -9,10 +9,22 @@ command, as well as examples of how to use the command in different scenarios.
 * [man](#man)
 * [sudo](#sudo)
 * [update and upgrade](#update-and-upgrade)
-* [ls](#ls)
-* [hostname](#hostname)
-* [pwd](#pwd)
-* [cd](#cd)
+* [Browsing File System](#browsing-file-system)
+  * [ls](#ls)
+  * [hostname](#hostname)
+  * [pwd](#pwd)
+  * [cd](#cd)
+  * [clear](#clear)
+  * [which](#which)
+  * [type](#type)
+  * [users](#users)
+  * [who](#who)
+  * [w](#w)
+  * [whoami](#whoami)
+  * [last](#last)
+* [File Management](#file-management)
+* [Networking](#networking)
+  * [ip](#ip)
 
 [related resources](#related-resources)
 
@@ -79,6 +91,7 @@ Analogy: (update) new socks versus new outfit (upgrade)
 
 [*Jump to Index*](#index)
 
+## Browsing File System
 ## ls
 
 * `ls` - list directory contents
@@ -120,7 +133,95 @@ cd -
 ```
 
 [*Jump to Index*](#index)
+## clear
 
+```bash 
+# clears the terminal screen
+clear
+```
+
+[*Jump to Index*](#index)
+
+## which
+
+```bash 
+# displays path to program
+which <ssh>
+```
+
+1[*Jump to Index*](#index)
+
+## type
+
+> type is generally better than which
+```bash 
+# displays what type of thing it is
+type <ssh>
+```
+
+[*Jump to Index*](#index)
+## users
+
+```bash 
+# displays short name of all logged in users
+users
+```
+
+[*Jump to Index*](#index)
+
+## who
+
+```bash 
+# displays who is logged in and how
+who 
+```
+
+[*Jump to Index*](#index)
+
+## w
+
+```bash 
+# display longer version of who is logged in
+w
+```
+
+[*Jump to Index*](#index)
+
+## whoami
+
+```bash 
+# display the effective userid
+whoami
+```
+
+[*Jump to Index*](#index)
+
+
+## last
+
+```bash 
+# displays summary of last logged in users
+last 
+```
+
+[*Jump to Index*](#index)
+
+## File Management
+
+
+
+[*Jump to Index*](#index)
+
+## Networking
+
+## ip
+
+```bash
+# displays internal ip address info
+ip a
+```
+
+[*Jump to Index*](#index)
 ### **Related resources**:
 
 * [linuxcommand.org](https://www.google.com/search?q=linuxcommand.org)
