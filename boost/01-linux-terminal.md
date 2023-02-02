@@ -77,6 +77,8 @@ Teletype
 
 ## Packages
 
-* neofetch - shows linux system info with disto logo
+* neofetch - shows linux system info with distro logo
+* openssh-server - for secure access from remote machines
+* vlock - virtual console locking program
 
 [*Jump to Index*](#index)
