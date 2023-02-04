@@ -19,6 +19,7 @@ command, as well as examples of how to use the command in different scenarios.
   * [type](#type)
   * [exit](#exit)
 * [File Management](#file-management)
+  * [Sorting Lists](#sorting-lists)
 * [Pagers](#pagers)
   * [more](#more)
   * [less](#less)
@@ -174,7 +175,11 @@ exit
 
 ## File Management
 
+## Sorting Lists
 
+```bash
+cat list.txt | sort -V | uniq
+```
 
 [*Jump to Index*](#index)
 

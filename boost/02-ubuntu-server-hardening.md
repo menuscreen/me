@@ -150,6 +150,77 @@ to be continued...
 ## Network security
 
 **Audit:**  
+Verify the Ubuntu operating system is configured to use strong authenticators in the establishment of nonlocal maintenance and diagnostic maintenance.
+
+```bash
+# Verify that "UsePAM" is set to "yes" in "/etc/ssh/sshd_config:
+grep -r ^UsePAM /etc/ssh/sshd_config*
+```
+
+**Fix:**
+```bash
+# Add or modify the following line to /etc/ssh/sshd_config:
+UsePAM yes
+```
+
+**Audit:**  
+Configure the Ubuntu operating system to automatically terminate inactive SSH sessions after a period of inactivity.
+
+```bash
+# Verify the "ClientAliveCountMax" variable is set in the "/etc/ssh/sshd_config" file by performing the following command:
+sudo grep -ir clientalivecountmax /etc/ssh/sshd_config*
+```
+
+**Fix:**
+```bash
+# If "ClientAliveCountMax" is not set, is not set to "1", or is commented out, Modify or append the following line in the "/etc/ssh/sshd_config" file, replacing "[Count]" with a value of 1:
+ClientAliveCountMax 1
+
+# Restart the SSH daemon for the changes to take effect:
+sudo systemctl restart sshd.service
+```
+
+**Audit:**  
+Verify that all network connections associated with SSH traffic are automatically terminated at the end of the session or after 10 minutes of inactivity.
+
+```bash
+# Verify the "ClientAliveInterval" variable is set to a value of "600" or less by performing the following command:
+sudo grep -ir clientalive /etc/ssh/sshd_config*
+```
+
+**Fix:**  
+Configure the Ubuntu operating system to automatically terminate all network connections associated with SSH traffic at the end of a session or after a 10-minute period of inactivity.
+```bash
+# Modify or append the following line in the "/etc/ssh/sshd_config" file replacing "[Interval]" with a value of "600" or less:
+ClientAliveInterval 600
+
+# Restart the SSH daemon for the changes to take effect:
+sudo systemctl restart sshd.service
+```
+
+**Audit:**  
+Verify the Ubuntu operating system displays the Notice and Consent Banner before granting access to the Ubuntu operating system via an SSH logon with the following command:
+
+```bash
+grep -ir banner /etc/ssh/sshd_config*
+cat /etc/issue.net
+```
+
+**Fix:**
+```bash
+# Set the parameter Banner in "/etc/ssh/sshd_config" to point to the "/etc/issue.net" file:
+sudo sed -i '/^Banner/d' /etc/ssh/sshd_config
+sudo sed -i '$aBanner /etc/issue.net' /etc/ssh/sshd_config
+```
+Either create the file containing the banner or replace the text in the file. `/etc/issue.net`
+> "You are accessing an Information System that is provided for authorized use only."
+
+Restart the SSH daemon for the changes to take effect and then signal the SSH server to reload the configuration file:
+```bash
+sudo systemctl -s SIGHUP kill sshd
+```
+
+**Audit:**  
 to be continued... 
 
 ```bash
@@ -158,7 +229,7 @@ to be continued...
 
 **Fix:**
 ```bash
-to be continued...
+to be continued... 
 ```
 
 ## Firewall configuration
