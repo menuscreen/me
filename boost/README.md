@@ -10,4 +10,4 @@ as well as debugging and troubleshooting techniques.
 
 * [linux commands](00-linux-commands.md/)
 * [linux terminal shortcuts](01-linux-terminal-shortcuts.md/)
-* [ubuntu server hardening](02-ubuntu-server-hardening.md/)
+
