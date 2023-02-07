@@ -2,6 +2,7 @@
 
 This repository contains scripts and guidelines for hardening an Ubuntu Server. Hardening refers to the process of securing a system by reducing its surface of vulnerability. Improve the overall security of Ubuntu Server and reduce the risk of successful cyber attacks using various aspects of server security such as:
 
+## [Index](#index)
 * [User account management](#user-account-managment)
 * [Network security](#network-security)
 * [Firewall configuration](#firewall-configuration)
@@ -10,6 +11,8 @@ This repository contains scripts and guidelines for hardening an Ubuntu Server. 
 * [Logging and monitoring](#logging-and-monitoring)
 
 ## User Account Managment
+
+[*Jump to Index*](#index)
 
 **Audit:**  
 Verify that the Ubuntu operating system expires temporary user accounts within 72 hours or less.
@@ -149,6 +152,8 @@ to be continued...
 
 ## Network security
 
+[*Jump to Index*](#index)
+
 **Audit:**  
 Verify the Ubuntu operating system is configured to use strong authenticators in the establishment of nonlocal maintenance and diagnostic maintenance.
 
@@ -221,6 +226,22 @@ sudo systemctl -s SIGHUP kill sshd
 ```
 
 **Audit:**  
+Verify the SSH daemon is configured to only use MACs that employ FIPS 140-2 approved ciphers with the following command:
+
+```bash
+grep -ir macs /etc/ssh/sshd_config*
+```
+
+**Fix:**
+```bash
+# If any ciphers other than "hmac-sha2-512" or "hmac-sha2-256" are listed, the order differs from 'MACs hmac-sha2-512,hmac-sha2-256', or the returned line is commented out, add the following line (or modify the line to have the required value) to the "/etc/ssh/sshd_config" file
+MACs hmac-sha2-512,hmac-sha2-256
+
+# Restart the SSH daemon for the changes to take effect:
+$ sudo systemctl reload sshd.service
+```
+
+**Audit:**  
 to be continued... 
 
 ```bash
@@ -233,6 +254,8 @@ to be continued...
 ```
 
 ## Firewall configuration
+
+[*Jump to Index*](#index)
 
 **Audit:**  
 to be continued... 
@@ -248,6 +271,8 @@ to be continued...
 
 ## System updates and patches
 
+[*Jump to Index*](#index)
+
 **Audit:**  
 to be continued... 
 
@@ -261,6 +286,8 @@ to be continued...
 ```
 
 ## File system permissions
+
+[*Jump to Index*](#index)
 
 **Audit:**  
 Verify the Ubuntu operating system defines default permissions for all authenticated users with the following command:
@@ -290,6 +317,8 @@ to be continued...
 
 ## Logging and monitoring
 
+[*Jump to Index*](#index)
+
 **Audit:**  
 to be continued... 
 
@@ -303,6 +332,8 @@ to be continued...
 ```
 
 ### Related
+
+[*Jump to Index*](#index)
 
 * [STIGS DOD Cyber Exchange Document Library Ubuntu Server](https://www.google.com/search?q=STIGS+DOD+Cyber+Exchange+Document+Library+Ubuntu+Server)
 * [CIS Ubuntu Linux Benchmarks](https://www.google.com/search?q=CIS+Ubuntu+Linux+Benchmarks)
