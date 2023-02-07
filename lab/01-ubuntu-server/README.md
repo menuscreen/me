@@ -1,13 +1,7 @@
-# Ubuntu Server Hardening - STIG
+# Ubuntu Server
 
-This repository contains scripts and guidelines for hardening an Ubuntu Server. Hardening refers to the process of securing a system by reducing its surface of vulnerability. Improve the overall security of Ubuntu Server and reduce the risk of successful cyber attacks using various aspects of server security such as:
+This repository is a personal collection of notes and configurations related to securing an Ubuntu server. It includes a variety of information and resources I have gathered while working with Ubuntu, including best practices for securing the server, recommendations for hardening the security of the system, and other important considerations for keeping the server safe and secure. The repository also includes my own notes and lessons learned, documenting any challenges or hurdles I encountered while working with the Ubuntu server and how I overcame them.
 
-* User account management
-* Network security
-* Firewall configuration
-* System updates and patches
-* File system permissions
-* Logging and monitoring
 
 ## Index
 
