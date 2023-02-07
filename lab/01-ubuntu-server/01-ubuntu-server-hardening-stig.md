@@ -1,4 +1,4 @@
-# Ubuntu Server Hardening
+# Ubuntu Server Hardening - STIG
 
 This repository contains scripts and guidelines for hardening an Ubuntu Server. Hardening refers to the process of securing a system by reducing its surface of vulnerability. Improve the overall security of Ubuntu Server and reduce the risk of successful cyber attacks using various aspects of server security such as:
 
@@ -9,6 +9,8 @@ This repository contains scripts and guidelines for hardening an Ubuntu Server. 
 * [System updates and patches](#system-updates-and-patches)
 * [File system permissions](#file-system-permissions)
 * [Logging and monitoring](#logging-and-monitoring)
+
+[**Related links**](#related)
 
 ## User Account Managment
 
@@ -335,5 +337,4 @@ to be continued...
 
 [*Jump to Index*](#index)
 
-* [STIGS DOD Cyber Exchange Document Library Ubuntu Server](https://www.google.com/search?q=STIGS+DOD+Cyber+Exchange+Document+Library+Ubuntu+Server)
-* [CIS Ubuntu Linux Benchmarks](https://www.google.com/search?q=CIS+Ubuntu+Linux+Benchmarks)
+* [STIGs DOD Cyber Exchange Document Library Ubuntu Server](https://www.google.com/search?q=STIGS+DOD+Cyber+Exchange+Document+Library+Ubuntu+Server)
