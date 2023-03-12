@@ -7,6 +7,7 @@ This repository is a personal collection of notes and configurations related to 
 
 * [STIG: Ubuntu Server](01-ubuntu-server-hardening-stig/)
 * CIS: Ubuntu Benchmarks (to do)
+* [Ubuntu Server Notes](02-ubuntu-server-notes/)
 
 ### Related
 
