@@ -45,7 +45,7 @@ set number
 
 " Autoread when file is changed from outside
 set autoread
-au FocusGained,BuffEnter * checktime
+au FocusGained,BufEnter * checktime
 
 " }}}
 
@@ -73,8 +73,7 @@ set wildmenu
 set wildmode=list:longest
 
 " Ignore compiled and other files
-set wildignore=*.o,*~,*.pyc,*.docx,*.jpg,*.png,*.gif,
-        *.pdf,*.exe,*.flv,*.img,*.xlsx
+set wildignore=*.o,*~,*.pyc,*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.flv,*.img,*.xlsx
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
 else
@@ -115,7 +114,7 @@ set lazyredraw
 
 " For regex
 set magic
-set regexengine=0
+set regexpengine=0
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -164,7 +163,7 @@ set lbr
 set tw=100
 set wrap
 set colorcolumn=101,201,301,401,501,601,701,801,901,1001
-set hl-colorcolumn ctermbg=238
+set highlight colorcolumn
 
 " Auto and smart indent
 set ai
@@ -229,7 +228,7 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
-map <leader>s? z= 
+map <leader>s? z=
 
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
