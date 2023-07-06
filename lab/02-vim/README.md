@@ -7,10 +7,24 @@ Command line text editor.
 Configuration file known as `.vimrc` created in the user's home directory.
 
 ```bash
-" ~/.vimrc
-
-
-""" GENERAL """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           ~/.vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Inspired by:
+"       https://github.com/amix/vimrc
+"
+" zo - open single fold at cursor
+" zc - close single fold at cursor
+" zR - open all folds
+" zM - close all folds
+" zf - creates new fold at cursor
+" zd - delete fold at cursor
+" zi - toggle on/off folding
+" :help folding
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------- GENERAL ----------------------- {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Lines of history remembered
 set history=1000
@@ -29,27 +43,15 @@ syntax on
 " Enable line numbers
 set number
 
-" Highlight cursor line horizontally
-set cursorline
-
-" Highlight cursor vertically
-set cursorcolumn
-
 " Autoread when file is changed from outside
 set autoread
 au FocusGained,BuffEnter * checktime
 
-" Map leader key combinations
-let mapleader = ","
+" }}}
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo save to handle permission-denied error
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-
-
-""" INTERFACE """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------- INTERFACE --------------------- {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set lines to cursor when moving veritically using j/k
 set so=7
@@ -71,7 +73,8 @@ set wildmenu
 set wildmode=list:longest
 
 " Ignore compiled and other files
-set wildignore=*.o,*~,*.pyc,*.docx,*.jpg,*.png,*.gif,*.pdf,*.exe,*.flv,*.img,*.xlsx
+set wildignore=*.o,*~,*.pyc,*.docx,*.jpg,*.png,*.gif,
+        *.pdf,*.exe,*.flv,*.img,*.xlsx
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
 else
@@ -83,6 +86,12 @@ set ruler
 
 " Height of command bar
 set cmdheight=1
+
+" Show partial command you type in last line of screen
+set showcmd
+
+" Show the mode you are in on last line of screen
+set showmode
 
 " Abandoned buffer becomes hidden
 set hid
@@ -128,12 +137,19 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-""" FILES, BACKUPS, TABs vs SPACES """
+" }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ---------------- FILES, BACKUPS, TABs/SPACES ------------ {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Turn off backups most stuff in SVN, git, etc.
 set nobackup
 set nowb
 set noswapfile
+
+" Do not let cursor scroll above or below number of lines
+set scrolloff=10
 
 " Use spaces instead of tabs and be smart
 set expandtab
@@ -148,11 +164,57 @@ set textwidth=80
 set wrap
 set colmuns=80
 set colorcolumn=81,161,241,321,401,481,561,641,721,801
-set highlight colorcolumn ctermbg=grey
+set highlight colorcolumn
+set ctermbg=grey
 
 " Auto and smart indent
 set ai
 set si
+
+" }}}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -------------------------- PLUGINS ---------------------- {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" }}}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -------------------------- MAPPINGS --------------------- {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Map leader key combinations
+let mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" :W sudo save to handle permission-denied error
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" }}}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------- VIMSCRIPT --------------------- {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable code folding using marker method
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------ STATUS LINE -------------------- {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" }}}
 
 ```
 
