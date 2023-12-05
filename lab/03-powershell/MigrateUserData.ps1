@@ -65,25 +65,54 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     exit
 }
 
-# Store the computer name in a variable
-$computerName = $env:COMPUTERNAME
 $usbDrivePath = $PSScriptRoot
+$computerName = $env:COMPUTERNAME
 
-# Function to copy directories
+# Function to copy directories with exclusion logic
 function Copy-Directory {
     param (
         [string]$sourcePath,
-        [string]$destinationPath
+        [string]$destinationPath,
+        [string[]]$excludeFolders,
+        [string]$logFilePath
     )
+
+    if (-Not (Test-Path $logFilePath)) {
+        New-Item -Path $logFilePath -ItemType File -Force | Out-Null
+    }
 
     try {
         if (Test-Path $sourcePath) {
-            Copy-Item -Path $sourcePath -Destination $destinationPath -Recurse -Force -ErrorAction Stop
-            Write-Host "Copied: $sourcePath to $destinationPath"
+            # Calculate total file count for progress tracking
+            $files = Get-ChildItem -Path $sourcePath -Recurse -Force -Exclude $excludeFolders
+            $totalFiles = $files.Count
+            $fileCount = 0
+
+            foreach ($file in $files) {
+                $destinationFile = Join-Path -Path $destinationPath -ChildPath $file.FullName.Substring($sourcePath.Length)
+
+                try {
+                    New-Item -ItemType Directory -Path (Split-Path -Path $destinationFile -Parent) -Force | Out-Null
+                    Copy-Item -Path $file.FullName -Destination $destinationFile -Force -ErrorAction Stop
+                } 
+                catch {
+                    # Handle the error for locked files
+                    $errorMessage = "Unable to copy file: $($file.FullName). Error: $_"
+                    Write-Host $errorMessage
+                    Add-Content -Path $logFilePath -Value $errorMessage
+                }
+                # Update progress
+                $fileCount++
+                $percentComplete = ($fileCount / $totalFiles) * 100
+                Write-Progress -Activity "Copying files" -Status "$fileCount of $totalFiles files copied" -PercentComplete $percentComplete
+            }
+            Write-Host "Finished copy: $sourcePath to $destinationPath"
         }
     }
     catch {
-        Write-Error "Error copying files: $_"
+        $errorMessage = "Error copying files from $sourcePath: $_"
+        Write-Host $errorMessage
+        Add-Content -Path $logFilePath -Value $errorMessage
     }
 }
 
@@ -99,18 +128,42 @@ foreach ($userProfile in $userProfiles) {
     $userName = $userProfile.Name
     $userDirectoryPath = "$usbDrivePath\$computerName\$userName"
     New-Item -Path $userDirectoryPath -ItemType Directory -Force | Out-Null
-
-    # Copy user folders and files
+    
     $userProfilePath = $userProfile.FullName
-    Copy-Directory -sourcePath $userProfilePath -destinationPath "$userDirectoryPath\Files"
 
-    # Browser favorites locations for Chrome, Firefox, and Edge
-    $chromeFavoritesPath = "$userProfilePath\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-    $firefoxFavoritesPath = "$userProfilePath\AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\bookmarkbackups"
-    $edgeFavoritesPath = "$userProfilePath\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks"
+    $logFilePath = "$userDirectoryPath\error_log.txt"
 
-    # Copy browser favorites
-    Copy-Directory -sourcePath $chromeFavoritesPath -destinationPath "$userDirectoryPath\BrowserFavorites\Chrome"
-    Copy-Directory -sourcePath $firefoxFavoritesPath -destinationPath "$userDirectoryPath\BrowserFavorites\Firefox"
-    Copy-Directory -sourcePath $edgeFavoritesPath -destinationPath "$userDirectoryPath\BrowserFavorites\Edge"
+    # Check if the user profile path is accessible
+    if (-Not (Test-Path $userProfilePath)) {
+        $errorMessage = "Cannot access user profile path: $userProfilePath"
+        Write-Host $errorMessage
+        Add-Content -Path $logFilePath -Value $errorMessage
+        continue
+    }
+
+    # Define an array of folders to exclude
+    $excludedFolders = @('3D Objects', 'AppData', 'Contacts', 'Links', 'Saved Games', 'Searches')
+
+    # Copy user folders and files with exclusions
+    Copy-Directory -sourcePath $userProfilePath -destinationPath "$userDirectoryPath\" -excludeFolders $excludedFolders
+
+    # Check and copy browser favorites if they exist
+    $pathsToCheck = @{
+        Chrome  = "$userProfilePath\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+        Firefox = "$userProfilePath\AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\bookmarkbackups"
+        Edge    = "$userProfilePath\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks"
+    }
+
+    foreach ($browser in $pathsToCheck.Keys) {
+        $favoritesPath = $pathsToCheck[$browser]
+        if (Test-Path $favoritesPath) {
+            Copy-Directory -sourcePath $favoritesPath -destinationPath "$userDirectoryPath\BrowserFavorites\$browser"
+        }
+        else {
+            $errorMessage = "No favorites found for $browser for user $userName."
+            Write-Host $errorMessage
+            Add-Content -Path $logFilePath -Value $errorMessage
+            continue
+        }
+    }
 }
