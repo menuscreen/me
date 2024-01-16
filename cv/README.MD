@@ -3,7 +3,6 @@
 ## Contact Information
 
 - Email: michael.scott@menuscreen.dev
-- Phone: (717) 467-1333
 - LinkedIn: https://linkedin.com/in/michaelscott2
 
 ## Summary
@@ -33,7 +32,7 @@ Coming soon...
 
 ### Support Specialist
 
-Appalachia Technologies | November 2022 - Present
+Appalachia Technologies | November 2022 - July 2023
 
 - Works individually with guidance as part of the larger Technical Assistance Team
 - Advises team decisions when dealing with familiar technologies
